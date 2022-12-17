@@ -14,7 +14,7 @@ $(function()
 			return;
 		}
 
-		let output = yamlToGo(input, $('#struct').val().trim(), !$('#inline').is(':checked'), false);
+		let output = yamlToGo(input, $('#struct').val().trim(), !$('#inline').is(':checked'), $('#serializationtags').val().trim());
 
 		if (output.error)
 		{
