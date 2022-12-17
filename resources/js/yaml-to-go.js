@@ -274,6 +274,8 @@ function yamlToGo(yaml, typename, flatten = true, serializationTags) {
 			case "string":
 				if (/\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(\.\d+)?(\+\d\d:\d\d|Z)/.test(val))
 					return "time.Time";
+				else if ((results = /datatype:(?<type>.*)/.exec(val)) !== null)
+					return results[1];
 				else
 					return "string";
 			case "number":
